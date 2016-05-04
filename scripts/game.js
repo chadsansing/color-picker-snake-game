@@ -20,7 +20,7 @@ game = {
     game.over = false;
     game.message = null;
     game.score = 0;
-    game.fps = 8;
+    game.fps = 12;
     snake.init();
     food.set();
   },
