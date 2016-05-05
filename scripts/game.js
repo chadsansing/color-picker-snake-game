@@ -170,6 +170,25 @@ food = {
     document.getElementById("rgbColorCode").innerHTML = "<span style='font-weight: 700;'>" + hexToRgb(food.color) + "</span>";
 	document.getElementById("my-score").innerHTML = "<span style='font-weight: 700;'>" + game.score + "</span>";
 	
+	function colorList() {
+	
+		var colors = [];
+	
+		for (var i = 0; i < 1; i++) {
+			colors.push(food.color);
+			console.log(food.color + ", " + hexToRgb(food.color));
+		}
+	
+		var node = document.createElement("SPAN");
+		var colorsNode = document.createTextNode(colors + ", ");
+		node.setAttribute("style", "background-color:" + food.color + ";");
+		node.appendChild(colorsNode);
+		document.getElementById("my-colors").appendChild(node);
+	
+	}
+	
+	colorList(food.color);
+	
   },
 
   draw: function() {
@@ -259,6 +278,7 @@ requestAnimationFrame(loop);
 //	document.getElementById("my-colors").innerHTML = <"<div><span style='color:" + food.color + ";'>" + food.color + "</span></div>";
 //}
 
+
 function hexToRgb(hex) {
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   hex = hex.replace(shorthandRegex, function(m, r, g, b) {
@@ -272,3 +292,5 @@ function hexToRgb(hex) {
 
   return "rgb("+r+", "+g+", "+b+")";
 }
+
+document.getElementsByTagName("SPAN").style.backgroundColor = food.color;
