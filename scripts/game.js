@@ -293,4 +293,4 @@ function hexToRgb(hex) {
   return "rgb("+r+", "+g+", "+b+")";
 }
 
-document.getElementsByTagName("SPAN").style.backgroundColor = food.color;
+//document.getElementsByTagName("SPAN").style.backgroundColor = food.color;
