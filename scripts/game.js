@@ -155,6 +155,15 @@ food = {
   color: "",
   rgbValue: "",  // Note - we don't even need to set it here, since we set it again every time food is made
 
+	colorList: function(color) {
+
+		var node = document.createElement("DIV");
+		node.setAttribute("style", "background-color:" + color + ";");
+    node.innerText = hexToRgb(color);
+		document.getElementById("my-colors").appendChild(node);
+	
+	},
+
   set: function() {
     // Note - This is where new food is generated, and where we want to set the food color
     food.size = snake.size;
@@ -165,29 +174,12 @@ food = {
 	var rgbFood =hexToRgb(food.color);
 	this.rgbFood = rgbFood;
 
-    document.body.style.backgroundColor = food.color;
-    document.getElementById("hexColorCode").innerHTML = "<span style='font-weight: 700;'>" + food.color + "</span>";
-    document.getElementById("rgbColorCode").innerHTML = "<span style='font-weight: 700;'>" + hexToRgb(food.color) + "</span>";
+  document.body.style.backgroundColor = food.color;
+  document.getElementById("hexColorCode").innerHTML = "<span style='font-weight: 700;'>" + food.color + "</span>";
+  document.getElementById("rgbColorCode").innerHTML = "<span style='font-weight: 700;'>" + hexToRgb(food.color) + "</span>";
 	document.getElementById("my-score").innerHTML = "<span style='font-weight: 700;'>" + game.score + "</span>";
 	
-	function colorList() {
-	
-		var colors = [];
-	
-		for (var i = 0; i < 1; i++) {
-			colors.push(food.color);
-			console.log(food.color + ", " + hexToRgb(food.color));
-		}
-	
-		var node = document.createElement("SPAN");
-		var colorsNode = document.createTextNode(colors + ", ");
-		node.setAttribute("style", "background-color:" + food.color + ";");
-		node.appendChild(colorsNode);
-		document.getElementById("my-colors").appendChild(node);
-	
-	}
-	
-	colorList(food.color);
+	this.colorList(food.color);
 	
   },
 
@@ -249,8 +241,8 @@ addEventListener("keydown", function (e) {
 }, false);
 
 var requestAnimationFrame = window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame;
+  window.webkitRequestAnimationFrame ||
+  window.mozRequestAnimationFrame;
 
 function loop() {
   if (game.over == false) {
@@ -268,17 +260,6 @@ function loop() {
 
 requestAnimationFrame(loop);
 
-
-//Chad-note: how do we get something like this to work?
-
-// var colorArray = [""];
-// colorArray.push(food.color);
-// for (var i = 0; i < colorArray.length; i++) {
-//	console.log(colorArray[i]);
-//	document.getElementById("my-colors").innerHTML = <"<div><span style='color:" + food.color + ";'>" + food.color + "</span></div>";
-//}
-
-
 function hexToRgb(hex) {
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   hex = hex.replace(shorthandRegex, function(m, r, g, b) {
@@ -288,9 +269,7 @@ function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   var r = parseInt(result[1], 16);
   var g = parseInt(result[2], 16);
-  var b = parseInt(result[2], 16);
+  var b = parseInt(result[3], 16);
 
   return "rgb("+r+", "+g+", "+b+")";
 }
-
-//document.getElementsByTagName("SPAN").style.backgroundColor = food.color;
