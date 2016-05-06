@@ -52,6 +52,10 @@ canvas {
 	font-size:1.4em; 
 }
 
+.swatches div {
+	width: 175px;
+}
+
 .attribution {
 	font-family: 'Open Sans', sans-serif;
 	font-size: .75em;
