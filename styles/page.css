@@ -13,6 +13,7 @@ hgroup, menu, nav, section {
 body {
   left-margin: 1em;
   background-color: #fff;
+  transition: background-color 0.5s linear;
 }
 
 h1 {
