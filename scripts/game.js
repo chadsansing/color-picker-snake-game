@@ -214,10 +214,10 @@ var inverseDirection = {
 };
 
 var keys = {
-  up: [38, 75, 87],
-  down: [40, 74, 83],
-  left: [37, 65, 72],
-  right: [39, 68, 76],
+  up: [38, 75],
+  down: [40, 74],
+  left: [37, 65],
+  right: [39, 68],
   start_game: [13, 32]
 };
 
