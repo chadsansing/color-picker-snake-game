@@ -73,6 +73,7 @@ snake = {
   y: null,
   color: '#0F0',
   direction: 'left',
+  playerDirection: 'left',
   sections: [],
 
   init: function() {
@@ -88,6 +89,9 @@ snake = {
 //Need to fix this to prevent killing yourself by doubling back w/in a tick.
 
   move: function() {
+    if(snake.playerDirection != inverseDirection[snake.direction]) {
+      snake.direction = snake.playerDirection;
+      ``}
     switch (snake.direction) {
       case 'up':
         snake.y -= snake.size;
@@ -234,9 +238,9 @@ function getKey(value){
 
 addEventListener("keydown", function (e) {
     var lastKey = getKey(e.keyCode);
-    if (['up', 'down', 'left', 'right'].indexOf(lastKey) >= 0
-        && lastKey != inverseDirection[snake.direction]) {
-      snake.direction = lastKey;
+    if (['up', 'down', 'left', 'right'].indexOf(lastKey) >= 0) {
+      snake.playerDirection = lastKey;
+      console.log(snake.playerDirection);
       e.preventDefault();
     } else if (['start_game'].indexOf(lastKey) >= 0 && game.over) {
       game.start();
