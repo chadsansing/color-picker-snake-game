@@ -85,6 +85,8 @@ snake = {
     }
   },
 
+//Need to fix this to prevent killing yourself by doubling back w/in a tick.
+
   move: function() {
     switch (snake.direction) {
       case 'up':
@@ -159,7 +161,7 @@ food = {
 
 		var node = document.createElement("DIV");
 		node.setAttribute("style", "background-color:" + color + ";");
-    node.innerText = hexToRgb(color);
+    node.innerText = color + ", " + hexToRgb(color);
 		document.getElementById("my-colors").appendChild(node);
 	
 	},
