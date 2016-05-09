@@ -237,6 +237,7 @@ addEventListener("keydown", function (e) {
     if (['up', 'down', 'left', 'right'].indexOf(lastKey) >= 0
         && lastKey != inverseDirection[snake.direction]) {
       snake.direction = lastKey;
+      e.preventDefault();
     } else if (['start_game'].indexOf(lastKey) >= 0 && game.over) {
       game.start();
     }
