@@ -244,6 +244,7 @@ addEventListener("keydown", function (e) {
       e.preventDefault();
     } else if (['start_game'].indexOf(lastKey) >= 0 && game.over) {
       game.start();
+      e.preventDefault();
     }
 }, false);
 
