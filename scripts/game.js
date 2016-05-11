@@ -237,15 +237,17 @@ function getKey(value){
 }
 
 addEventListener("keydown", function (e) {
-    var lastKey = getKey(e.keyCode);
-    if (['up', 'down', 'left', 'right'].indexOf(lastKey) >= 0) {
-      snake.playerDirection = lastKey;
-      console.log(snake.playerDirection);
-      e.preventDefault();
-    } else if (['start_game'].indexOf(lastKey) >= 0 && game.over) {
-      game.start();
-      e.preventDefault();
-    }
+  var lastKey = getKey(e.keyCode);
+  if (lastKey == 'start_game') {
+    e.preventDefault();
+  }
+  if (['up', 'down', 'left', 'right'].indexOf(lastKey) >= 0) {
+    snake.playerDirection = lastKey;
+    e.preventDefault();
+  } else if (['start_game'].indexOf(lastKey) >= 0 && game.over) {
+    game.start();
+    e.preventDefault();
+  }
 }, false);
 
 var requestAnimationFrame = window.requestAnimationFrame ||
