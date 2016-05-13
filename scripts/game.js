@@ -184,10 +184,8 @@ food = {
     document.getElementById("hexColorCode").innerHTML = "<span style='font-weight: 700;'>" + food.color + "</span>";
     document.getElementById("rgbColorCode").innerHTML = "<span style='font-weight: 700;'>" + hexToRgb(food.color) + "</span>";
   	document.getElementById("my-score").innerHTML = "<span style='font-weight: 700;'>" + game.score + "</span>";
-	
-  	this.colorList(food.color);
 
-  }
+  	this.colorList(food.color);
 	
   },
 
