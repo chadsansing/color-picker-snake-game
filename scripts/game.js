@@ -176,16 +176,18 @@ food = {
     food.x = (Math.ceil(Math.random() * 10) * snake.size * 4) - snake.size / 2;
     food.y = (Math.ceil(Math.random() * 10) * snake.size * 3) - snake.size / 2;
     food.color='#' + ("000000" + Math.random().toString(16).slice(2,8).toUpperCase()).slice(-6);
+    
+  	var rgbFood =hexToRgb(food.color);
+  	this.rgbFood = rgbFood;
+  
+    document.body.style.backgroundColor = food.color;
+    document.getElementById("hexColorCode").innerHTML = "<span style='font-weight: 700;'>" + food.color + "</span>";
+    document.getElementById("rgbColorCode").innerHTML = "<span style='font-weight: 700;'>" + hexToRgb(food.color) + "</span>";
+  	document.getElementById("my-score").innerHTML = "<span style='font-weight: 700;'>" + game.score + "</span>";
 	
-	var rgbFood =hexToRgb(food.color);
-	this.rgbFood = rgbFood;
+  	this.colorList(food.color);
 
-  document.body.style.backgroundColor = food.color;
-  document.getElementById("hexColorCode").innerHTML = "<span style='font-weight: 700;'>" + food.color + "</span>";
-  document.getElementById("rgbColorCode").innerHTML = "<span style='font-weight: 700;'>" + hexToRgb(food.color) + "</span>";
-	document.getElementById("my-score").innerHTML = "<span style='font-weight: 700;'>" + game.score + "</span>";
-	
-	this.colorList(food.color);
+  }
 	
   },
 
