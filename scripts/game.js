@@ -7,6 +7,7 @@
 
 var canvas = document.getElementById("the-game");
 var context = canvas.getContext("2d");
+var foodMusic = document.getElementById("nomPing");
 var game, snake, food;
 
 game = {
@@ -15,6 +16,7 @@ game = {
   fps: 8,
   over: false,
   message: null,
+  sounds: null,
 
   start: function() {
     game.over = false;
@@ -24,6 +26,7 @@ game = {
     snake.init();
     food.set();
   },
+  
 
   stop: function() {
     game.over = true;
@@ -74,7 +77,7 @@ snake = {
   color: '#0F0',
   direction: 'left',
   playerDirection: 'left',
-  sections: [],
+  sections: [], 
 
   init: function() {
     snake.sections = [];
@@ -91,7 +94,7 @@ snake = {
   move: function() {
     if(snake.playerDirection != inverseDirection[snake.direction]) {
       snake.direction = snake.playerDirection;
-      ``}
+      ''}
     switch (snake.direction) {
       case 'up':
         snake.y -= snake.size;
@@ -142,6 +145,9 @@ snake = {
       // Note - This code runs when the snake eats the food
       snake.color = food.color;
       game.score++;
+      foodMusic.pause();
+      foodMusic.currentTime = 0;
+      foodMusic.play();
       if (game.score % 5 == 0 && game.fps < 60) {
         game.fps++;
       }
@@ -211,6 +217,7 @@ food = {
   },
   
 };
+
 
 var inverseDirection = {
   'up': 'down',
