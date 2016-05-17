@@ -16,7 +16,6 @@ game = {
   fps: 8,
   over: false,
   message: null,
-  sounds: null,
 
   start: function() {
     game.over = false;
