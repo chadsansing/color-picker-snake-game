@@ -2,10 +2,11 @@
 // under a MIT License http://opensource.org/licenses/MIT
 // and Copyright (c) 2013 Jason D. Straughan
 
-// Fork by Chad Sansing under an MIT License http://opensource.org/licenses/MIT 
-// with help from Luke Pacholski.
+// Fork by Chad Sansing and Luke Pacholski under an Mozilla Public License https://www.mozilla.org/en-US/MPL/.
+//Repo at https://github.com/chadsansing/color-picker-snake-game.
 
-//Food sound effect assist from http://cssdeck.com/labs/classic-snake-game-with-html5-canvas.
+//Sound effect assist from http://cssdeck.com/labs/classic-snake-game-with-html5-canvas.
+//Soud effectes last updated on 5/17/16 from Luke Pacholski's https://github.com/flukeout/simple-sounds.
 
 var canvas = document.getElementById("the-game");
 var context = canvas.getContext("2d");
