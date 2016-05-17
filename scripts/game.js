@@ -5,9 +5,13 @@
 // Fork by Chad Sansing under an MIT License http://opensource.org/licenses/MIT 
 // with help from Luke Pacholski.
 
+//Food sound effect assist from http://cssdeck.com/labs/classic-snake-game-with-html5-canvas.
+
 var canvas = document.getElementById("the-game");
 var context = canvas.getContext("2d");
-var foodMusic = document.getElementById("nomPing");
+var startMusic = document.getElementById("press-space");
+var foodMusic = document.getElementById("eat-food");
+var gameOverMusic = document.getElementById("game-over");
 var game, snake, food;
 
 game = {
@@ -125,6 +129,9 @@ snake = {
 
   checkCollision: function() {
     if (snake.isCollision(snake.x, snake.y) === true) {
+      gameOverMusic.pause();
+      gameOverMusic.currentTime = 0;
+      gameOverMusic.play();
       game.stop();
     }
   },
@@ -252,6 +259,9 @@ addEventListener("keydown", function (e) {
     e.preventDefault();
   } else if (['start_game'].indexOf(lastKey) >= 0 && game.over) {
     game.start();
+    startMusic.pause();
+    startMusic.currentTime = 0;
+    startMusic.play();
     e.preventDefault();
   }
 }, false);
