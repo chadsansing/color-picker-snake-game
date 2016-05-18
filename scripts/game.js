@@ -13,11 +13,10 @@ var context = canvas.getContext("2d");
 var startMusic = document.getElementById("press-space");
 var foodMusic = document.getElementById("eat-food");
 var gameOverMusic = document.getElementById("game-over");
-var themeMusic = document.getElementById("theme-music");
-themeMusic.volume = 0;
-themeMusic.pause();
-themeMusic.currentTime = 0;
-themeMusic.play();
+// themeMusic.volume = 0;
+// themeMusic.pause();
+// themeMusic.currentTime = 0;
+// themeMusic.play();
 var game, snake, food;
 
 game = {
@@ -26,7 +25,22 @@ game = {
   fps: 8,
   over: false,
   message: null,
-
+  musicButtonLabel: document.getElementById("music-button-label"),
+  themeMusicEl: document.getElementById("theme-music"),
+  musicOn: false,
+  
+  toggleMusic: function() {
+    if(this.musicOn == false) {
+      this.musicOn = true;
+      this.themeMusicEl.volume = .33;
+      this.musicButtonLabel.innerText = "Music Off";
+    } else {
+      this.musicOn = false;
+      this.themeMusicEl.volume = 0;
+      this.musicButtonLabel.innerText = "Music On";
+    }
+  },
+  
   start: function() {
     game.over = false;
     game.message = null;
@@ -34,6 +48,8 @@ game = {
     game.fps = 12;
     snake.init();
     food.set();
+    this.themeMusicEl.play();
+    this.themeMusicEl.volume = 0;
   },
   
 
@@ -289,16 +305,6 @@ function loop() {
 }
 
 requestAnimationFrame(loop);
-
-function playMusic() {
-  themeMusic.volume = .33;
-  document.getElementById("music-button").innerHTML = "<span id='music-button'><button class='toggler' onclick='muteMusic()'>Music Off</button></span>";
-}
-
-function muteMusic() {
-  themeMusic.volume = 0;
-  document.getElementById("music-button").innerHTML = "<span id='music-button'><button class='toggler' onclick='playMusic()'>Music On</button></span>";
-}
 
 function hexToRgb(hex) {
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
