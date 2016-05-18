@@ -22,9 +22,7 @@ h1 {
 	margin-top:.25em;
 	margin-bottom:0;
 	text-align: left;
-	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;  
-	}
-	
+	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
 h2 {
@@ -45,6 +43,11 @@ canvas {
 	display: inline-block;
 	float: left;
 	min-width: 320px;
+}
+
+#music-button {
+
+  width: 90%;
 }
 
 .swatches {
@@ -78,6 +81,16 @@ canvas {
 	width:320px;
 	max-width:480px;
 	min-width:320px;
+}
+
+.toggler {
+  background-color: #efefef;
+  border: 1px solid transparent;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  text-align: left;
+  
 }
 
 .wrapper {
