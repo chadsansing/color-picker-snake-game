@@ -30,6 +30,7 @@
 		<li>Move w/ arrow keys or WASD.</li>
 		<li>Uncoil to reveal hidden food.</li>
 		<li>Eat food to grow and increase speed.</li>
+    <li><span id="music-button"><button class="toggler" onClick="playMusic()">Music On</button></span></li>
 	</ol>
 	
 	  <h2>Game Info</h2>
@@ -64,6 +65,9 @@
 
 
   <canvas id="the-game" width="560" height="420"></canvas>
+  
+  <!--Sound effects CC-BY-SA 2.0 by Luke Pacholski for Mozilla-->
+  
   <audio id="eat-food" style="display:none;">
 		<source src="sounds/coin.mp3" type="audio/mp3" />
 	</audio>
@@ -73,7 +77,10 @@
   <audio id="game-over" style="display:none;">
 		<source src="sounds/dead.wav" type="audio/wav" />
 	</audio>
-	
+  
+  <!--Theme music "Arcade Music Loop" CC-BY 3.0 by joshuaempyre, https://freesound.org/people/joshuaempyre/sounds/251461/-->
+	<audio id="theme-music" style="display:none;" loop="loop" controls="">
+    <source src="sounds/theme-music.wav" type="audio/wav">
   </audio>
 
 </div>

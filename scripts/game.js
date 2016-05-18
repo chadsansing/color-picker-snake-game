@@ -13,6 +13,11 @@ var context = canvas.getContext("2d");
 var startMusic = document.getElementById("press-space");
 var foodMusic = document.getElementById("eat-food");
 var gameOverMusic = document.getElementById("game-over");
+var themeMusic = document.getElementById("theme-music");
+themeMusic.volume = 0;
+themeMusic.pause();
+themeMusic.currentTime = 0;
+themeMusic.play();
 var game, snake, food;
 
 game = {
@@ -209,9 +214,7 @@ food = {
   	    context.font = (canvas.height/20) + 'px monospace';
   	    context.textAlign = 'center';
   	    context.fillText("", canvas.width / 2, canvas.height * .97);
-  	    game.drawBox(food.x, food.y, food.size, food.color); // Note - This draws the food every frame
-	  	
-		
+  	    game.drawBox(food.x, food.y, food.size, food.color); // Note - This draws the food every frame     
 	  }
 	  else {
 	  	
@@ -220,7 +223,7 @@ food = {
 	    context.textAlign = 'center';
 	    context.fillText(food.color + ", " + this.rgbFood, canvas.width / 2, canvas.height * .97);
 	    game.drawBox(food.x, food.y, food.size, food.color); // Note - This draws the food every frame
-	}
+	  }
   },
   
 };
@@ -286,6 +289,16 @@ function loop() {
 }
 
 requestAnimationFrame(loop);
+
+function playMusic() {
+  themeMusic.volume = .33;
+  document.getElementById("music-button").innerHTML = "<span id='music-button'><button class='toggler' onclick='muteMusic()'>Music Off</button></span>";
+}
+
+function muteMusic() {
+  themeMusic.volume = 0;
+  document.getElementById("music-button").innerHTML = "<span id='music-button'><button class='toggler' onclick='playMusic()'>Music On</button></span>";
+}
 
 function hexToRgb(hex) {
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
