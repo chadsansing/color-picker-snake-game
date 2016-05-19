@@ -28,6 +28,14 @@ game = {
   musicButtonLabel: document.getElementById("music-button-label"),
   themeMusicEl: document.getElementById("theme-music"),
   musicOn: false,
+  // music: [77],
+  // lastKey: null,
+  //
+  // addEventListener("keydown", function (e) {
+  //   this.lastKey = getKey(e.keyCode);
+  //   if (this.lastKey == 'music') {
+  //     toggleMusic();
+  // }, false);
   
   toggleMusic: function() {
     if(this.musicOn == false) {
@@ -257,6 +265,7 @@ var keys = {
   down: [40, 74],
   left: [37, 65],
   right: [39, 68],
+  music: [77, 77],
   start_game: [13, 32]
 };
 
