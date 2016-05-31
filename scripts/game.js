@@ -313,6 +313,43 @@ function loop() {
   }, 1000 / game.fps);
 }
 
+addEventListener("keydown", function (e) {
+  if (e.keyCode == 18) {
+    e.preventDefault();
+    music.toggleMusic();
+  }
+});
+
+var music = {
+  
+  themeMusicEl: document.getElementById("theme-music"),
+  musicStatusEl: document.getElementById("music-status"),
+  musicOn: false,
+
+  toggleMusic: function() {
+    if (this.musicOn == false) {
+      this.musicOn = true;
+      this.playMusic();
+    } 
+    else if (this.musicOn == true) {
+      this.musicOn = false;
+      this.pauseMusic();
+    } 
+  },
+
+  pauseMusic: function() {
+    this.themeMusicEl.pause();
+    this.musicStatusEl.innerText = "Play Music";
+  },
+
+  playMusic: function() {
+    this.themeMusicEl.play();
+    this.themeMusicEl.volume = .33;
+    this.musicStatusEl.innerText = "Pause Music";
+  }
+};
+
+
 requestAnimationFrame(loop);
 
 function hexToRgb(hex) {
